@@ -26,7 +26,7 @@
             </div>
         </div>
         <button type="submit"
-            class="bg-[#E65D2E] rounded-xl px-7 py-2 text-center text-stone-50 text-xl font-bold leading-normal">Daftar</button>
+            class="bg-[#E65D2E] rounded-xl px-7 py-2 text-center text-stone-50 text-xl font-bold leading-normal">Masuk</button>
     </form>
     <div>
         <p class="text-white">Belum punya akun? <a href="{{route('register')}}" class="text-[#E65D2E] hover:underline">Daftar</a></p>
