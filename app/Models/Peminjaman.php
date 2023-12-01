@@ -52,6 +52,8 @@ class Peminjaman extends Model
 		'tujuan_peminjaman',
 		'tgl_pengajuan',
 		'tgl_peminjaman',
+		'waktu_mulai',
+		'waktu_selesai',
 		'tgl_selesai',
 		'ktm_digital',
 		'surat_peminjaman',

@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Adkeu;
 use Illuminate\Http\Request;
 use App\Models\Mahasiswa;
+use App\Models\Sarpra;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 
@@ -17,8 +19,13 @@ class AuthController extends Controller
         return view('login');
     }
 
+    public function loginSarpra(){
+        return view('loginSarpra');
+    }
+
     public function registerProcess(Request $request){
         // return $request;
+        $isBem = $request->isBem == 1;
         $create = Mahasiswa::create([
             'nim' => $request->nim,
             'nama' => $request->nama_lengkap,
@@ -28,10 +35,21 @@ class AuthController extends Controller
             'tgl_lahir' => $request->tgl_lahir,
             'alamat' => $request->alamat,
             'jenis_kelamin' => $request->jenis_kelamin,
-            'BEM' => $request->isBEM == 1 ? true : false
+            'BEM' => $isBem ? true : false
         ]);
 
+        if($isBem){
+            Adkeu::create([
+                'nim' => $request->nim,
+                'username' => $request->nim,
+            ]);
+        }
+
         Auth::login($create);
+
+        if(Auth::user()->BEM){
+            return redirect()->route('riwayat.index');
+        }
 
         return redirect()->route('home');
     }
@@ -41,9 +59,24 @@ class AuthController extends Controller
 
         if($user){
             Auth::login($user);
+            if (Auth::user()->BEM) {
+                return redirect()->route('riwayat.index');
+            }
             return redirect()->route('home');
         } else {
             return redirect()->route('login');
+        }
+    }
+
+    public function loginSarpraProcess(Request $request)
+    {
+        $user = Sarpra::where('username', $request->username)->where('password', $request->password)->first();
+
+        if ($user) {
+            Auth::guard('sarpra')->login($user);
+            return redirect()->route('sarpra.riwayat.index');
+        } else {
+            return redirect()->route('loginSarpra');
         }
     }
 

@@ -7,6 +7,8 @@
 namespace App\Models;
 
 use Carbon\Carbon;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Model;
 
 /**
@@ -25,7 +27,7 @@ use Illuminate\Database\Eloquent\Model;
  *
  * @package App\Models
  */
-class Sarpra extends Model
+class Sarpra extends Authenticatable
 {
 	protected $table = 'sarpras';
 	protected $primaryKey = 'username';
@@ -40,6 +42,7 @@ class Sarpra extends Model
 	];
 
 	protected $fillable = [
+		'username',
 		'nama',
 		'password',
 		'phone_number',
@@ -48,4 +51,34 @@ class Sarpra extends Model
 		'alamat',
 		'jenis_kelamin'
 	];
+
+	public function getAuthIdentifierName()
+	{
+		return 'username'; // replace 'id' with the actual primary key field name of your Mahasiswa model
+	}
+
+	public function getAuthIdentifier()
+	{
+		return $this->{$this->getAuthIdentifierName()};
+	}
+
+	public function getAuthPassword()
+	{
+		return $this->password;
+	}
+
+	public function getRememberToken()
+	{
+		return $this->remember_token;
+	}
+
+	public function setRememberToken($value)
+	{
+		$this->remember_token = $value;
+	}
+
+	public function getRememberTokenName()
+	{
+		return 'remember_token';
+	}
 }

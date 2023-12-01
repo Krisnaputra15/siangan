@@ -16,7 +16,7 @@ class isLogin
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if(Auth::check()){
+        if(Auth::check() || Auth::guard('sarpra')->check()){
             return $next($request);
         }
         return redirect()->route('login');

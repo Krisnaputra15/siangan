@@ -40,6 +40,10 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
+        'sarpra' => [
+            'driver' => 'session',
+            'provider' => 'sarpra',
+        ],
     ],
 
     /*
@@ -63,6 +67,10 @@ return [
         'users' => [
             'driver' => 'eloquent',
             'model' => App\Models\Mahasiswa::class,
+        ],
+        'sarpra' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Sarpra::class,
         ],
 
         // 'users' => [

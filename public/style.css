@@ -28,7 +28,7 @@ input[type="radio"]:checked{
     height: 4px;
     background-color: #97A6BB;
     border: #97A6BB solid;
-    width: 15%;
+    width: 20%;
 }
 
 .horizontal-scroll-flexbox {
@@ -67,7 +67,12 @@ input[type="radio"]:checked{
     display: none;
 }
 
-.time:checked + .label{
+.time:checked + .label {
     transition: 0.3s;
     border: #E65D2E 1px solid;
+}
+
+
+.loadingSpinner {
+    display: none;
 }

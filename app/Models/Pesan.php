@@ -10,23 +10,28 @@ use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * Class Adkeu
+ * Class Pesan
  * 
- * @property string $username
- * @property string $nim
+ * @property int $id
+ * @property int $id_peminjaman
+ * @property string $content
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
  *
  * @package App\Models
  */
-class Adkeu extends Model
+class Pesan extends Model
 {
-	protected $table = 'adkeu';
-	protected $primaryKey = 'username';
-	public $incrementing = false;
+	protected $table = 'pesan';
+
+	protected $casts = [
+		'id_peminjaman' => 'int'
+	];
 
 	protected $fillable = [
-		'nim',
-		'username',
+		'id_peminjaman',
+		'sender',
+		'status_sekarang',
+		'content'
 	];
 }
