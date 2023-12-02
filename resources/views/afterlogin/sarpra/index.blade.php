@@ -1,4 +1,4 @@
-@extends('template.template')
+@extends('template.template2')
 
 @section('title')
     Riwayat Peminjaman

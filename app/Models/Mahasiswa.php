@@ -7,7 +7,8 @@
 namespace App\Models;
 
 use Carbon\Carbon;
-use Illuminate\Foundation\Auth\User as Authenticatable;
+
+use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
@@ -29,7 +30,7 @@ use Illuminate\Notifications\Notifiable;
  *
  * @package App\Models
  */
-class Mahasiswa extends Authenticatable
+class Mahasiswa extends Model implements Authenticatable
 {
 	use Notifiable;
 	protected $table = 'mahasiswa';
@@ -38,7 +39,7 @@ class Mahasiswa extends Authenticatable
 
 	protected $casts = [
 		'tgl_lahir' => 'datetime',
-		'BEM' => 'bool'
+		'BEM' => 'int'
 	];
 
 	protected $hidden = [

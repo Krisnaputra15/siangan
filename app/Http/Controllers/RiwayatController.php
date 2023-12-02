@@ -32,7 +32,8 @@ class RiwayatController extends Controller
     {
         $peminjaman2 = Peminjaman::join('ruangan', 'peminjaman.id_ruangan', 'ruangan.id_ruangan')->select('peminjaman.*', 'ruangan.nama_ruang')->where(function (Builder $query) {
             $query->where('status_peminjaman', 'diproses')
-            ->orWhere('status_peminjaman', 'disetujui');
+            ->orWhere('status_peminjaman', 'disetujui')
+            ->orWhere('status_peminjaman', 'ditolak');
         })->get();
         return view('afterlogin.sarpra.index', ['peminjaman' => $peminjaman2, 'date' => Carbon::parse(date('Y-m-d'))]);
     }

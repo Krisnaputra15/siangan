@@ -15,7 +15,7 @@ class PesanController extends Controller
      */
     public function index()
     {
-        $pesan = Pesan::join('peminjaman', 'peminjaman.id_peminjaman', 'pesan.id_peminjaman')->select('pesan.*', 'peminjaman.status_peminjaman', 'peminjaman.nim')->orderBy('created_at', 'desc')
+        $pesan = Pesan::join('peminjaman', 'peminjaman.id_peminjaman', 'pesan.id_peminjaman')->select('pesan.*', 'peminjaman.status_peminjaman', 'peminjaman.nim', 'peminjaman.surat_peminjaman')->orderBy('created_at', 'desc')
         ->where('peminjaman.nim', Auth::user()->nim)->get();
         return view('afterlogin.pesan.index', ['pesan' => $pesan, 'date' => Carbon::parse(date('Y-m-d'))]);
     }

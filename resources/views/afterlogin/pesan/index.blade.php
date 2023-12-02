@@ -24,7 +24,7 @@
                         <td class="whitespace px-6 py-4">{{$item->created_at->locale('id_ID')->isoFormat('LLLL')}}</td>
                         <td class="whitespace px-6 py-4">
                         @if($item->status_sekarang == 'disetujui')
-                            <a class="px-7 py-4 rounded-xl border border-red-500 text-center text-red-500 font-semibold">Unduh</a>
+                            <a href="{{asset('storage/syarat/' . $item->surat_peminjaman)}}" class="px-7 py-4 rounded-xl border border-red-500 text-center text-red-500 font-semibold">Unduh</a>
                         @elseif($item->status_sekarang == 'revisi')
                             <a href="{{route('home2', ['peminjamanId' => $item->id_peminjaman])}}" class="px-7 py-4 rounded-xl border border-red-500 text-center text-red-500 font-semibold">Revisi</a>
                         @else

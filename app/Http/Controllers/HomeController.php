@@ -17,7 +17,7 @@ class HomeController extends Controller
 {
     public function index(){
         $ruangan = Ruangan::all();
-        return view('afterlogin.home', ['ruangan' => $ruangan]);
+        return view('afterlogin.home', ['ruangan' => $ruangan, 'page']);
     }
 
     public function index2($id){

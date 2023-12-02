@@ -15,12 +15,7 @@
         </div>
         <div class="menu">
             <ul class="py-8 ps-6">
-                @auth('sarpra')
-                    <li class="py-2 text-white font-light"><a href="{{route('riwayat.index')}}"><i class="fa-solid fa-clock-rotate-left mr-3"></i>Riwayat Peminjaman</a></li>
-                    <li class="py-2 text-white font-light"><a href="{{route('logout')}}" class="text-[#FFD5CA]"><i class="fa-solid fa-arrow-right-from-bracket mr-3"></i>Keluar</a></li>
-                @endauth
-
-                @auth('web')
+                    
                     @if(auth()->user()->BEM == 0)
                         <li class="py-2 text-white font-light"><a href="{{route('home')}}" class="active"><i class="fa-solid fa-plus text-white mr-3"></i>Tambah Peminjaman</a></li>
                         <li class="py-2 text-white font-light"><a href="{{route('riwayat.index')}}"><i class="fa-solid fa-clock-rotate-left mr-3"></i>Riwayat Peminjaman</a></li>
@@ -30,7 +25,6 @@
                         <li class="py-2 text-white font-light"><a href="{{route('riwayat.index')}}"><i class="fa-solid fa-clock-rotate-left mr-3"></i>Riwayat Peminjaman</a></li>
                         <li class="py-2 text-white font-light"><a href="{{route('logout')}}" class="text-[#FFD5CA]"><i class="fa-solid fa-arrow-right-from-bracket mr-3"></i>Keluar</a></li>
                     @endif
-                @endauth
             </ul>
         </div>
     </nav>

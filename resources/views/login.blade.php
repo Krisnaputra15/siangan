@@ -20,7 +20,7 @@
                 <label for="nim" class="text-white">Kata Sandi</label>
                 <div>
                     <input type="password" name="password" id="password" class="p-3 bg-stone-50 rounded-xl w-[100%]">
-                    <span id="togglePassword" class="eye-icon absolute right-[36%] top-[59%] cursor-pointer"
+                    <span id="togglePassword" class="eye-icon absolute right-[36%] top-[60%] cursor-pointer"
                         onclick="togglePassword()"><i class="fa-regular fa-eye"></i></span>
                 </div>
             </div>
